@@ -158,7 +158,7 @@ var customPopup10 = "<b>Krinos Patisserie: Bakery. </b><br/> Advertisement year:
 var customPopup11 = "<b>Pharos Agency: Travel. </b><br/> Advertisement year: 1964 <br/><br/>Address: 4534 Park Avenue<br/><img src='img/Pharostravel.jpg' alt='Pharos' width='200px'/>";
 var customPopup12 = "<b>To Kolonaki: Restaurant. </b><br/> Advertisement year: 1974 <br/><br/>Address: 752 Jean Talon West<br/><img src='img/to kolonaki.jpg' alt='Kolonaki' width='200px'/>";
 var customPopup13 = "<b>National Bank of Greece: Banking Services. </b><br/> Advertisement year: 1973 <br/><br/>Address: 1405 Peel Street<br/><img src='img/nationalbank.jpg' alt='Bank' width='200px'/>";
-var customPopup14 = "<b>Pantheon: Restaurant, Christmas Greeting. </b><br/> Advertisement year: 1974 <br/><br/>Address: 5583 Park Avenue<br/><img src='img/Pantheon.jpg' alt='Pantheon' width='300px'/>";
+var customPopup14 = "<b>Pantheon: Restaurant, Christmas Greeting. </b><br/> Advertisement year: 1974 <br/><br/>Address: 1437 St. Lawrence Blvd<br/><img src='img/Pantheon.jpg' alt='Pantheon' width='300px'/>";
 var customPopup15 = "<b>Park View Realties: Real Estate. </b><br/> Advertisement year: 1969 <br/><br/>Address: 715 Jean Talon West<br/><img src='img/Parkviewrealties.jpg' alt='Parkview' width='300px'/>";
 var customPopup16 = "<b>Bassias Insurance Agency: Insurance. </b><br/> Advertisement year: 1969 <br/><br/>Address: 5206A Park Avenue<br/><img src='img/Bassiasinsurance.jpg' alt='Bassias' width='200px'/>";
 var customPopup17 = "<b>Fur Factory: Factory, Factory work. </b><br/> Advertisement year: 1969 <br/><br/>Address: 3575 St. Lawrence Blvd.<br/><img src='img/Furfactory.jpg' alt='Fur' width='200px'/>";
@@ -223,7 +223,7 @@ L.marker([45.500401,-73.573372], {icon: dollarIcon})
 		.addTo(map)
 		.bindPopup(customPopup13);
 
-L.marker([45.522702, -73.602592], {icon: restoIcon})
+L.marker([45.510391,-73.564560], {icon: restoIcon})
 		.addTo(map)
 		.bindPopup(customPopup14);
 
@@ -262,47 +262,162 @@ L.marker([45.523701,-73.604713], {icon: cinemaIcon})
 </script>
 	
 	<style>
-p {
-text-align: center;
-	margin: 0 auto;
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
 
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
 }
 </style>
+</head>
+<body>
 
-<p style="color:Black; font-family:tahoma; ">Selected Shops</p>
-	
-	<style>
-ul {
-text-align: center;
-	margin: 0 auto;
+<h2>Selected Greek Shops</h2>
 
-}
-</style>
-	
+<table>
+  <tr>
+    <th>Commerce</th>
+    <th>Type</th>
+    <th>Address</th>
+  </tr>
+  <tr>
+     <td>Ariston</td>
+    <td>Dresses, Fabrics</td>
+    <td>3496 Park Avenue</td>
+  </tr>
+  <tr>
+    <td>Arena Pharmacy</td>
+    <td>Health</td>
+    <td>85 Mount Royal West</td>
+    </tr>
+    
+    <tr>
+    <td>Happiness Avenue</td>
+    <td>Matchmaking</td>
+    <td>117 Mount Royal West</td>
+     </tr>
+    
+     <tr>
+   <td>Rex Travel Agency</td>
+   <td>Travel</td>
+    <td>3492 Park Avenue and Milton</td>
+   </tr>
+   
+        <tr>
+  <td>New Navarino Bakery</td>
+   <td>Bakery</td>
+    <td>5563 Park Avenue</td>
+   </tr>
+  
+  <tr>
+  <td>Four Brothers Supermarket</td>
+   <td>Bakery</td>
+    <td>3701 St. Lawrence Blvd.</td>
+   </tr>
+  
+    <tr>
+  <td>Greek Avenue Restaurant</td>
+	<td>Restaurant</td>
+    <td>5583 Park Ave.</td>
+   </tr>
+  
+    <tr>
+<td>Travels Karagiannidis</td>
+   <td>Travel</td>
+    <td>5824 Park Avenue</td>
+   </tr>
 
-<ul style="list-style-type:none; color:Black; font-family:tahoma;">
-  <li>Ariston: Dresses, Fabrics.</li>
-  <li>Arena Pharmacy: Health.</li>
-  <li>Happiness Avenue: Matchmaking.</li>
-  <li>Rex Travel Agency: Travel.</li>
-  <li>New Navarino Bakery: Bakery, Christmas Greeting.</li>
-  <li>Four Brothers Supermarket: Grocery store. </li>
-  <li>Greek Avenue Restaurant: Restaurant. </li>
-  <li>Travels Karagiannidis: Travel. </li>
-  <li>Krinos Patisserie: Bakery. </li>
-  <li>Pharos Agency: Travel. </li>
-  <li>To Kolonaki: Restaurant. </li>
-  <li>National Bank of Greece: Banking Services. </li>
-  <li>Pantheon: Restaurant, Christmas Greeting. </li>
-  <li>Park View Realties: Real Estate. </li>
-  <li>Bassias Insurance Agency: Insurance. </li>
-  <li>Fur Factory: Factory, Factory work.</li>
-  <li>Restaurant Kriti: Restaurant. </li>
-  <li>Vakchos Greek Cultural Products: Merchandising business. </li>
-  <li>Greek Radio Station: Technology.</li>
-  <li>Sewing Machines Singer: Merchandising business, Hardware. </li>
-  <li>Rialto and Empire: Cinema. </li>
-</ul>
+  <tr>
+  <td>Krinos Patisserie</td>
+   <td>Bakery</td>
+    <td>3900 St. Lawrence Blvd</td>
+   </tr>
+  
+    <tr>
+  <td>Pharos Agency</td>
+   <td>Travel</td>
+    <td>4534 Park Avenue</td>
+   </tr>
+  
+    <tr>
+  <td>To Kolonaki</td>
+   <td>Restaurant</td>
+    <td>752 Jean Talon W.</td>
+   </tr>
+  
+    <tr>
+ <td> National Bank of Greece</td>
+  <td>Banking Services</td>
+    <td>1405 Peel Street</td>
+   </tr>
+ 
+   <tr>
+  <td>Pantheon</td>
+   <td>Restaurant</td>
+    <td>1437 St. Lawrence Blvd</td>
+   </tr>
+  
+    <tr>
+ <td> Park View Realties</td>
+   <td>Real Estate</td>
+    <td>715 Jean Talon West</td>
+   </tr>
+ 
+   <tr>
+ <td> Bassias Insurance Agency</td>
+   <td>Insurance company</td>
+    <td>5206A Park Ave.</td>
+   </tr>
+ 
+   <tr>
+  <td>Fur Factory</td>
+   <td>Factory</td>
+    <td>3575 St. Lawrence Blvd</td>
+   </tr>
+  
+  <tr>
+ <td>Restaurant Kriti</td>
+   <td>Restaurant</td>
+    <td>826 Jean Talon W.</td>
+   </tr>
+ 
+   <tr>
+  <td>Vakchos Greek Cultural Products</td>
+   <td>Merchandising business</td>
+    <td>5301 Park Ave.</td>
+   </tr>
+  
+    <tr>
+ <td>Greek Radio Station</td>
+  <td>Communications Technology</td>
+    <td>4636 Park Ave.</td>
+   </tr>
+ 
+   <tr>
+  <td>Sewing Machines Singer</td>
+   <td>Hardware</td>
+    <td>5619 Park Ave.</td>
+   </tr>
+  
+    <tr>
+  <td>Rialto and Empire</td>
+   <td>Cinema</td>
+    <td>5723 Park Avenue</td>
+   </tr>
+    
+  </tr>
 
+</table>
+
+</body>
 </body>
 </html>
