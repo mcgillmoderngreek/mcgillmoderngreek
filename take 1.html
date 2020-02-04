@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Greek Stores Map</title>
+    <meta charset="UTF-8">  
+		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900|Quicksand:400,700|Questrial" rel="stylesheet" />
+		<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+
+ <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+   integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+   crossorigin=""></script>
+
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
+		
+</head>
+<body>
+<div id="header-wrapper">
+	<div id="header" class="container">
+		<div id="logo">
+        	<span class="icon icon-cog"></span>
+			<h1><a href="#">Immigrec</a></h1>
+		</div>
+<div class="wrapper">
+	<div id="banner" class="container"><img src="img/title_image.jpg" width="800" height="500" alt="" /></div>
+	<div id="welcome" class="container">
+	
+	<div class="title">
+	  <h2>Greek Shopping Map</h2>
+		</div>
+		<p>The Memory Lane map presents 21 selected Greek shops that existed in Montréal between the years 1950 and 1980. This digital cartography project is based on the advertisements published in the newspaper Hellenic Canadian Tribune (VIMA). Stavroula Pabst (MA History, McGill, 2019) catalogued the VIMA newspaper advertisements digitized by the McGill Immigrec team. Postdoctoral fellow Dr. Alexandra Siotou selected 21 shops that are mentioned during the interviews with the Greek community members, conducted by the Immigrec Project research team. Based on the data provided, The Memory Lane map was created by Deniz Ozlem Cevik (M.ISt Information Science, McGill, 2020) research administrator of the Immigrec project. Check out the map! Compare yesterday with today! Do you remember these stores? Do you have pictures of them? Contact us on our <A href="https://www.facebook.com/McGill-Modern-Greek-Studies-170202963168247/">Facebook page</A> and let us know. </p>
+	</div>
+	
+	<div id="map" style="width: 1200px; height: 700px; margin: 0 auto">
+	
+	</div>
+	
+	
+<script>
+
+	var osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+		osmAttrib = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+		osm = L.tileLayer(osmUrl, {maxZoom: 18, attribution: osmAttrib});
+
+var OpenStreetMap_BlackAndWhite = L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
+	maxZoom: 18,
+	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+});
+
+var map = L.map('map').setView([45.517028, -73.590247], 13).addLayer(osm);
+
+	var baseLayers = {
+			"OpenStreetMaps": osm,
+			"Black & White": OpenStreetMap_BlackAndWhite
+		};
+
+L.control.layers(baseLayers).addTo(map);
+
+map.addControl(new L.Control.Fullscreen());
+
+L.control.scale().addTo(map);
+
+var storeIcon = L.icon({
+        iconUrl: 'pins/clothings.png',
+        iconSize: [30, 40], 
+        popupAnchor: [0,-15]
+        });
+
+var healthIcon = L.icon({
+        iconUrl: 'pins/health-medical.png',
+        iconSize: [30, 40], 
+        popupAnchor: [0,-15]
+        });
+
+var coffeeIcon = L.icon({
+        iconUrl: 'pins/cake-shop.png',
+        iconSize: [30, 40], 
+        popupAnchor: [0,-15]
+        });
+
+
+
+var loveIcon = L.icon({
+        iconUrl: 'pins/matrimonial.png',
+        iconSize: [30, 40], 
+        popupAnchor: [0,-15]
+        });
+
+var airplaneIcon = L.icon({
+        iconUrl: 'pins/travel.png',
+        iconSize: [30, 40], 
+        popupAnchor: [0,-15]
+        });
+
+var supermarketIcon = L.icon({
+        iconUrl: 'pins/shopping.png',
+        iconSize: [30, 40], 
+        popupAnchor: [0,-15]
+        });
+
+var restoIcon = L.icon({
+        iconUrl: 'pins/restaurants.png',
+        iconSize: [30, 40], 
+        popupAnchor: [0,-15]
+        });
+
+var dollarIcon = L.icon({
+        iconUrl: 'pins/financial-services.png',
+        iconSize: [30, 40], 
+        popupAnchor: [0,-15]
+        });
+
+var houseIcon = L.icon({
+        iconUrl: 'pins/real-estate.png',
+        iconSize: [30, 40], 
+        popupAnchor: [0,-15]
+        });
+
+var shieldIcon = L.icon({
+        iconUrl: 'pins/accountancy.png',
+        iconSize: [30, 40], 
+        popupAnchor: [0,-15]
+        });
+
+var factoryIcon = L.icon({
+        iconUrl: 'pins/industries.png',
+        iconSize: [30, 40], 
+        popupAnchor: [0,-15]
+        });
+
+var amphoraIcon = L.icon({
+        iconUrl: 'pins/museums.png',
+        iconSize: [30, 40], 
+        popupAnchor: [0,-15]
+        });
+
+var micIcon = L.icon({
+        iconUrl: 'pins/mass-media.png',
+        iconSize: [30, 40], 
+        popupAnchor: [0,-15]
+        });
+
+var cinemaIcon = L.icon({
+        iconUrl: 'pins/movies.png',
+        iconSize: [30, 40], 
+        popupAnchor: [0,-15]
+        });
+
+var customPopup1 = "<b>Ariston: Dresses, Fabrics.</b><br/> Advertisement year: 1964<br/><br/>Address: 3496 Park Avenue<br/><img src='img/Photo1Ariston.jpg' alt='Ariston' width='300px'/>";
+var customPopup2 = "<b>Arena Pharmacy: Health.</b><br/> Advertisement year: 1964<br/><br/>Address: 85 Mount Royal West<br/><img src='img/9EB_02-05-64- 85 mont royal.jpg' alt='Ariston' width='300px'/>";
+var customPopup3 = "<b>Mimoza Patisserie: Pastries, Coffee.</b><br/> Advertisement year: 1964<br/><br/>Address: 53 Saint Catherine Street West<br/><img src='img/10EB_09-05-64-mimoza.jpg' alt='Ariston' width='300px'/>";
+var customPopup4 = "<b>Happiness Avenue: Matchmaking.</b><br/> Advertisement year: 1964<br/><br/>Address: 117 Mount Royal West<br/><img src='img/14EB_06-06-64-happiness avenue.jpg' alt='Ariston' width='150px'/>";
+var customPopup5 = "<b>Rex Travel Agency: Travel. </b><br/> Advertisement year: 1964<br/><br/>Address: 3492 Park Avenue and Milton<br/><img src='img/14-03-64 Rex.jpg' alt='Rex' width='300px'/>";
+var customPopup6 = "<b>New Navarino Bakery: Bakery, Christmas Greeting. </b><br/> Advertisement year: 1974<br/><br/>Address: 5563 Park Avenue<br/><img src='img/new navarino.jpg' alt='Newnavarino' width='200px'/>";
+var customPopup7 = "<b>Four Brothers Supermarket: Grocery store. </b><br/> Advertisement year: 1973 <br/><br/>Address: 3701 St. Lawrence Blvd.<br/><img src='img/fourbrothers.jpg' alt='Fourbrothers' width='200px'/>";
+var customPopup8 = "<b>Greek Avenue Restaurant: Restaurant. </b><br/> Advertisement year: 1973 <br/><br/>Address: 5583 Park Avenue<br/><img src='img/Photo2GreekAvenue.jpg' alt='Greekavenue' width='300px'/>";
+var customPopup9 = "<b>Travels Karagiannidis: Travel. </b><br/> Advertisement year: 1964 <br/><br/>Address: 5824 Park Avenue<br/><img src='img/TravelKaragiannidis.jpg' alt='Karagiannidis' width='300px'/>";
+var customPopup10 = "<b>Krinos Patisserie: Bakery. </b><br/> Advertisement year: 1964 <br/><br/>Address: 3900 St. Lawrence Blvd.<br/><img src='img/Krinospatisserie.jpg' alt='Krinos' width='300px'/>";
+var customPopup11 = "<b>Pharos Agency: Travel. </b><br/> Advertisement year: 1964 <br/><br/>Address: 4534 Park Avenue<br/><img src='img/Pharostravel.jpg' alt='Pharos' width='200px'/>";
+var customPopup12 = "<b>To Kolonaki: Restaurant. </b><br/> Advertisement year: 1974 <br/><br/>Address: 752 Jean Talon West<br/><img src='img/to kolonaki.jpg' alt='Kolonaki' width='200px'/>";
+var customPopup13 = "<b>National Bank of Greece: Banking Services. </b><br/> Advertisement year: 1973 <br/><br/>Address: 1405 Peel Street<br/><img src='img/nationalbank.jpg' alt='Bank' width='200px'/>";
+var customPopup14 = "<b>Pantheon: Restaurant, Christmas Greeting. </b><br/> Advertisement year: 1974 <br/><br/>Address: 1437 St. Lawrence Blvd<br/><img src='img/Pantheon.jpg' alt='Pantheon' width='300px'/>";
+var customPopup15 = "<b>Park View Realties: Real Estate. </b><br/> Advertisement year: 1969 <br/><br/>Address: 715 Jean Talon West<br/><img src='img/Parkviewrealties.jpg' alt='Parkview' width='300px'/>";
+var customPopup16 = "<b>Bassias Insurance Agency: Insurance. </b><br/> Advertisement year: 1969 <br/><br/>Address: 5206A Park Avenue<br/><img src='img/Bassiasinsurance.jpg' alt='Bassias' width='200px'/>";
+var customPopup17 = "<b>Fur Factory: Factory, Factory work. </b><br/> Advertisement year: 1969 <br/><br/>Address: 3575 St. Lawrence Blvd.<br/><img src='img/Furfactory.jpg' alt='Fur' width='200px'/>";
+var customPopup18 = "<b>Restaurant Kriti: Restaurant. </b><br/> Advertisement year: 1969 <br/><br/>Address: 826 Jean Talon West<br/><img src='img/Kriti.jpg' alt='Kriti' width='200px'/>";
+var customPopup19 = "<b>Vakchos Greek Cultural Products: Merchandising business. </b><br/> Advertisement year: 1968 <br/><br/>Address: 5301 Park Avenue<br/><img src='img/Greekcultural.jpg' alt='Greek' width='300px'/>";
+var customPopup20 = "<b>Greek Radio Station: Technology. </b><br/> Advertisement year: 1966 <br/><br/>Address: 4636 Park Avenue<br/><img src='img/Radio.jpg' alt='Greekradio' width='200px'/>";
+var customPopup21 = "<b>Sewing Machines Singer: Merchandising business, Hardware. </b><br/> Advertisement year: 1966 <br/><br/>Address: 5619 Park Avenue<br/><img src='img/Singer.jpg' alt='Singer' width='150px'/>";
+var customPopup22 = "<b>Rialto and Empire: Cinema.  </b><br/> Advertisement year: 1973 <br/><br/>Address: 5723 Park Avenue<br/><img src='img/rialtoempire.jpg' alt='Rialto' width='150px'/>";
+
+L.marker([45.509309, -73.573566], {icon: storeIcon})
+		.addTo(map)
+		.bindPopup(customPopup1);
+
+L.marker([45.519273, -73.587477], {icon: healthIcon})
+		.addTo(map)
+		.bindPopup(customPopup2);
+
+L.marker([45.509417, -73.564634], {icon: coffeeIcon})
+		.addTo(map)
+		.bindPopup(customPopup3);
+
+
+L.marker([45.518767, -73.587864], {icon: loveIcon})
+		.addTo(map)
+		.bindPopup(customPopup4);
+
+
+L.marker([45.509350, -73.573500], {icon: airplaneIcon})
+		.addTo(map)
+		.bindPopup(customPopup5);
+
+L.marker([45.522649, -73.602194], {icon: coffeeIcon})
+		.addTo(map)
+		.bindPopup(customPopup6);
+
+L.marker([45.515039, -73.574495], {icon: supermarketIcon})
+		.addTo(map)
+		.bindPopup(customPopup7);
+
+L.marker([45.522702, -73.602592], {icon: restoIcon})
+		.addTo(map)
+		.bindPopup(customPopup8);
+
+L.marker([45.523817, -73.606097], {icon: airplaneIcon})
+		.addTo(map)
+		.bindPopup(customPopup9);
+
+L.marker([45.516322, -73.578166], {icon: coffeeIcon})
+		.addTo(map)
+		.bindPopup(customPopup10);
+
+L.marker([45.517028, -73.590247], {icon: airplaneIcon})
+		.addTo(map)
+		.bindPopup(customPopup11);
+
+L.marker([45.526880, -73.624287], {icon: restoIcon})
+		.addTo(map)
+		.bindPopup(customPopup12);
+
+L.marker([45.500401,-73.573372], {icon: dollarIcon})
+		.addTo(map)
+		.bindPopup(customPopup13);
+
+L.marker([45.510391,-73.564560], {icon: restoIcon})
+		.addTo(map)
+		.bindPopup(customPopup14);
+
+L.marker([45.527010,-73.624590], {icon: houseIcon})
+		.addTo(map)
+		.bindPopup(customPopup15);
+
+L.marker([45.520320,-73.597930], {icon: shieldIcon})
+		.addTo(map)
+		.bindPopup(customPopup16);
+
+L.marker([45.513900,-73.572130], {icon: factoryIcon})
+		.addTo(map)
+		.bindPopup(customPopup17);
+
+L.marker([45.525870,-73.624620], {icon: restoIcon})
+		.addTo(map)
+		.bindPopup(customPopup18);
+
+L.marker([45.521320,-73.599720], {icon: amphoraIcon})
+		.addTo(map)
+		.bindPopup(customPopup19);
+
+L.marker([45.517604, -73.591670], {icon: micIcon})
+		.addTo(map)
+		.bindPopup(customPopup20);
+
+L.marker([45.523039, -73.603108], {icon: storeIcon})
+		.addTo(map)
+		.bindPopup(customPopup21);
+
+L.marker([45.523701,-73.604713], {icon: cinemaIcon})
+		.addTo(map)
+		.bindPopup(customPopup22);
+
+</script>
+	
+	<div id="footer">
+	<div class="container">
+		<div class="fbox1">
+		<span class="icon icon-map-marker"></span>
+			<span>680 Sherbrooke West
+			<br />Montreal, QC</span>
+		</div>
+		<div class="fbox1">
+			<span class="icon icon-phone"></span>
+			<span>
+				Telephone: +1 800 123 4657
+			</span>
+		</div>
+		<div class="fbox1">
+			<span class="icon icon-envelope"></span>
+			<span>mcgillmoderngreek@gmail.com</span>
+		</div>
+	</div>
+</div>
+<div id="copyright">
+	<p>&copy; Immigrec. All rights reserved. | Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
+	<ul class="contact">
+		<li><a href="#" class="icon icon-twitter"><span>Twitter</span></a></li>
+		<li><a href="#" class="icon icon-facebook"><span></span></a></li>
+	</ul>
+</div>
+</body>
+
+</html>
+
+
