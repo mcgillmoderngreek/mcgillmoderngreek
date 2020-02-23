@@ -23,11 +23,13 @@
 <div id="header-wrapper">
 	<div id="header" class="container">
 		<div id="logo">
-        	<span class="icon icon-cog"></span>
+        	<span class="icon icon-home"></span>
 			<h1><a href="#">Immigrec</a></h1>
 		</div>
+	</div>
+</div>
 <div class="wrapper">
-	<div id="banner" class="container"><img src="img/title_image.jpg" width="800" height="500" alt="" /></div>
+	<div id="banner" class="container"><img src="img/title_image.jpg" width="700" height="270" alt="title" /></div>
 	<div id="welcome" class="container">
 	
 	<div class="title">
@@ -35,11 +37,26 @@
 		</div>
 		<p>The Memory Lane map presents 21 selected Greek shops that existed in Montréal between the years 1950 and 1980. This digital cartography project is based on the advertisements published in the newspaper Hellenic Canadian Tribune (VIMA). Stavroula Pabst (MA History, McGill, 2019) catalogued the VIMA newspaper advertisements digitized by the McGill Immigrec team. Postdoctoral fellow Dr. Alexandra Siotou selected 21 shops that are mentioned during the interviews with the Greek community members, conducted by the Immigrec Project research team. Based on the data provided, The Memory Lane map was created by Deniz Ozlem Cevik (M.ISt Information Science, McGill, 2020) research administrator of the Immigrec project. Check out the map! Compare yesterday with today! Do you remember these stores? Do you have pictures of them? Contact us on our <A href="https://www.facebook.com/McGill-Modern-Greek-Studies-170202963168247/">Facebook page</A> and let us know. </p>
 	</div>
+</div>
 	
-	<div id="map" style="width: 1200px; height: 700px; margin: 0 auto">
+	<div id="map" style="width: 1200px; height: 772px; margin: 0 auto">
 	
 	</div>
 	
+	<style>
+	 .legend {
+      border: 1px solid black;
+      font-weight: normal;
+      color: black;
+      text-align: left;
+      width: 140px;
+      height: 684px;
+      line-height: 18px;
+      background: #BDBABA;
+      opacity: 3;
+    }
+	
+	</style>
 	
 <script>
 
@@ -65,6 +82,30 @@ map.addControl(new L.Control.Fullscreen());
 
 L.control.scale().addTo(map);
 
+var legend = L.control({position: 'topright'});
+
+legend.onAdd = function (map) {
+    var div = L.DomUtil.create('div', 'legend');
+    div.innerHTML +=  '<img src="pins/clothings.png">' + '     Clothing' + '<br>'
+    div.innerHTML +=  '<img src="pins/health-medical.png">'  + '     Health' + '<br>'
+	div.innerHTML +=  '<img src="pins/matrimonial.png">'  + '     Matchmaking' + '<br>'
+	div.innerHTML +=  '<img src="pins/travel.png">'  + '     Travel Agency' + '<br>'
+	div.innerHTML +=  '<img src="pins/shopping.png">'  + '     Grocery' + '<br>'
+	div.innerHTML +=  '<img src="pins/restaurants.png">'  + '     Restaurant' + '<br>'
+	div.innerHTML +=  '<img src="pins/financial-services.png">'  + '     Bank' + '<br>'
+	div.innerHTML +=  '<img src="pins/accountancy.png">'  + '     Insurance' + '<br>'
+	div.innerHTML +=  '<img src="pins/industries.png">'  + '     Manufacture' + '<br>'
+	div.innerHTML +=  '<img src="pins/real-estate.png">'  + '     Real Estate' + '<br>'
+	div.innerHTML +=  '<img src="pins/museums.png">'  + '     Culture' + '<br>'
+	div.innerHTML +=  '<img src="pins/mass-media.png">'  + '     Media' + '<br>'
+	div.innerHTML +=  '<img src="pins/movies.png">'  + '     Cinema' + '<br>'
+    div.innerHTML +=  '<img src="pins/cake-shop.png">'   +  '     Café'
+
+    return div;
+};
+
+legend.addTo(map);
+
 var storeIcon = L.icon({
         iconUrl: 'pins/clothings.png',
         iconSize: [30, 40], 
@@ -82,8 +123,6 @@ var coffeeIcon = L.icon({
         iconSize: [30, 40], 
         popupAnchor: [0,-15]
         });
-
-
 
 var loveIcon = L.icon({
         iconUrl: 'pins/matrimonial.png',
@@ -295,5 +334,3 @@ L.marker([45.523701,-73.604713], {icon: cinemaIcon})
 </body>
 
 </html>
-
-
